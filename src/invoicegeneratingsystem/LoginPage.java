@@ -5,17 +5,32 @@
  */
 package invoicegeneratingsystem;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
  */
 public class LoginPage extends javax.swing.JFrame {
 
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
     /**
      * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Login Page");
+
+
     }
 
     /**
@@ -27,93 +42,117 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SalihujLabel = new javax.swing.JLabel();
-        UsernamejLabel = new javax.swing.JLabel();
-        UsernamejTextField = new javax.swing.JTextField();
-        PasswordjLabel = new javax.swing.JLabel();
-        PasswordjPasswordField = new javax.swing.JPasswordField();
-        SubmitjButton = new javax.swing.JButton();
-        ClearjButton = new javax.swing.JButton();
+        salihujLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        usrnametxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        paswrdpsd = new javax.swing.JPasswordField();
+        submitbtn = new javax.swing.JButton();
+        clearbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        SalihujLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        SalihujLabel.setText("Salihu Car Rental");
+        salihujLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        salihujLabel.setText("Salihu Car Rental");
 
-        UsernamejLabel.setText("Username");
+        jLabel1.setText("Username");
 
-        UsernamejTextField.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Password");
+
+        submitbtn.setText("Submit");
+        submitbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernamejTextFieldActionPerformed(evt);
+                submitbtnActionPerformed(evt);
             }
         });
 
-        PasswordjLabel.setText("Password");
-
-        SubmitjButton.setText("Submit");
-        SubmitjButton.addActionListener(new java.awt.event.ActionListener() {
+        clearbtn.setText("Clear");
+        clearbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitjButtonActionPerformed(evt);
+                clearbtnActionPerformed(evt);
             }
         });
-
-        ClearjButton.setText("Clear");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PasswordjLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(PasswordjPasswordField))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(UsernamejLabel)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SalihujLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(UsernamejTextField))))
+                        .addContainerGap(257, Short.MAX_VALUE)
+                        .addComponent(salihujLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(paswrdpsd))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(usrnametxt)))))
                 .addGap(257, 257, 257))
             .addGroup(layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(SubmitjButton)
+                .addGap(277, 277, 277)
+                .addComponent(submitbtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ClearjButton)
+                .addComponent(clearbtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SalihujLabel)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UsernamejLabel)
-                    .addComponent(UsernamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasswordjLabel)
-                    .addComponent(PasswordjPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(salihujLabel)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SubmitjButton)
-                    .addComponent(ClearjButton))
-                .addContainerGap(235, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(usrnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitbtn)
+                    .addComponent(clearbtn))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsernamejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernamejTextFieldActionPerformed
+    private void clearbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernamejTextFieldActionPerformed
+        usrnametxt.setText(null);
+        paswrdpsd.setText(null);
+    }//GEN-LAST:event_clearbtnActionPerformed
 
-    private void SubmitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitjButtonActionPerformed
+    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SubmitjButtonActionPerformed
+        conn = MySqlConnect.ConnectDB();
+        String sql = "Select * From login where username=? and password=?";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, usrnametxt.getText());
+            pst.setString(2, paswrdpsd.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(LoginPage.this, "You are logged in to the Invoice System", "Information", JOptionPane.NO_OPTION);
+                CustomerInformation page = new CustomerInformation();
+                page.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(LoginPage.this, "Incorrect Username or password \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
+                usrnametxt.setText(null);
+                paswrdpsd.setText(null);
+            }
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_submitbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,12 +190,12 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ClearjButton;
-    private javax.swing.JLabel PasswordjLabel;
-    private javax.swing.JPasswordField PasswordjPasswordField;
-    private javax.swing.JLabel SalihujLabel;
-    private javax.swing.JButton SubmitjButton;
-    private javax.swing.JLabel UsernamejLabel;
-    private javax.swing.JTextField UsernamejTextField;
+    private javax.swing.JButton clearbtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField paswrdpsd;
+    private javax.swing.JLabel salihujLabel;
+    private javax.swing.JButton submitbtn;
+    private javax.swing.JTextField usrnametxt;
     // End of variables declaration//GEN-END:variables
 }
