@@ -51,6 +51,8 @@ public class LoginPage extends javax.swing.JFrame {
         clearbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+        setResizable(false);
 
         salihujLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         salihujLabel.setText("Salihu Car Rental");
@@ -59,7 +61,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
-        submitbtn.setText("Submit");
+        submitbtn.setText("Login");
         submitbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitbtnActionPerformed(evt);
@@ -140,9 +142,10 @@ public class LoginPage extends javax.swing.JFrame {
             pst.setString(2, paswrdpsd.getText());
             rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(LoginPage.this, "You are logged in to the Invoice System", "Information", JOptionPane.NO_OPTION);
+           //     JOptionPane.showMessageDialog(LoginPage.this, "You are logged in to the Invoice System", "Information", JOptionPane.NO_OPTION);
                 CustomerInformation page = new CustomerInformation();
                 page.setVisible(true);
+                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(LoginPage.this, "Incorrect Username or password \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
                 usrnametxt.setText(null);
