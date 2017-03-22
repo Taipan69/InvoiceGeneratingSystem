@@ -49,6 +49,7 @@ public class LoginPage extends javax.swing.JFrame {
         paswrdpsd = new javax.swing.JPasswordField();
         submitbtn = new javax.swing.JButton();
         clearbtn = new javax.swing.JButton();
+        shwpassChkBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -75,6 +76,13 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        shwpassChkBox.setText("Show Password");
+        shwpassChkBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shwpassChkBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +90,7 @@ public class LoginPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(257, Short.MAX_VALUE)
+                        .addContainerGap(237, Short.MAX_VALUE)
                         .addComponent(salihujLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(189, 189, 189)
@@ -95,7 +103,9 @@ public class LoginPage extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(usrnametxt)))))
-                .addGap(257, 257, 257))
+                .addGap(18, 18, 18)
+                .addComponent(shwpassChkBox)
+                .addGap(158, 158, 158))
             .addGroup(layout.createSequentialGroup()
                 .addGap(277, 277, 277)
                 .addComponent(submitbtn)
@@ -115,12 +125,13 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shwpassChkBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitbtn)
                     .addComponent(clearbtn))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,6 +167,19 @@ public class LoginPage extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_submitbtnActionPerformed
+
+    private void shwpassChkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shwpassChkBoxActionPerformed
+        // TODO add your handling code here:
+        if (shwpassChkBox.isSelected())
+        {
+            paswrdpsd.setEchoChar((char)0); //password = JPasswordField
+        }
+    else
+        {
+
+            paswrdpsd.setEchoChar('*');
+        }
+    }//GEN-LAST:event_shwpassChkBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +222,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField paswrdpsd;
     private javax.swing.JLabel salihujLabel;
+    private javax.swing.JCheckBox shwpassChkBox;
     private javax.swing.JButton submitbtn;
     private javax.swing.JTextField usrnametxt;
     // End of variables declaration//GEN-END:variables

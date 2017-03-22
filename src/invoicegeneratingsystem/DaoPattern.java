@@ -15,12 +15,12 @@ import java.util.logging.Logger;
  *
  * @author user
  */
-public class DaoPattern implements IDaoPattern{
+public class DaoPattern implements IDaoPattern {
 
     MyDBConnection connection;
     Connection c;
-    public DaoPattern()
-    {
+
+    public DaoPattern() {
         connection = new MyDBConnection();
         connection.createConnection("jdbc:mysql://localhost:3306/invoicegeneratingsystem", "root", "Asdfghjkl1234567890");
         c = connection.getConnection();
@@ -28,8 +28,7 @@ public class DaoPattern implements IDaoPattern{
 
     @Override
     public void insertCustomerDetails(String id, String title, String first, String last, String add, String number, String packageType) {
-      try 
-        {
+        try {
             PreparedStatement statement = c.prepareStatement("insert into customer(id,title,firstName,lastName,address,phoneNumber,package) values(?,?,?,?,?,?,?)");
             statement.setString(1, id);
             statement.setString(2, title);
@@ -39,12 +38,60 @@ public class DaoPattern implements IDaoPattern{
             statement.setString(6, number);
             statement.setString(7, packageType);
             int result = statement.executeUpdate();
-            
-        } 
-        catch (SQLException ex) 
-        {
+
+        } catch (SQLException ex) {
             Logger.getLogger(DaoPattern.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @Override
+    public void insertInvoiceDetails(String invoiceNumber, String invoiceDate, String customerID) {
+        try {
+            PreparedStatement statement = c.prepareStatement("insert into invoice(Number,date,customer_id) values(?,?,?)");
+            statement.setString(1, invoiceNumber);
+            statement.setString(2, invoiceDate);
+            statement.setString(3, customerID);
+            int result = statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoPattern.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void insertRentInfomation1(String CarID, String Kilometreshr, String Durationhr, String Renthr, String Total, String invoiceNumber) {
+        try {
+            PreparedStatement statement = c.prepareStatement("insert into rentinformation(Car_id, Kilometres, Duration, Rent, Total, Invoice_Number) values(?,?,?,?,?,?)");
+            statement.setString(1, CarID);
+            statement.setString(2, Kilometreshr);
+            statement.setString(3, Durationhr);
+            statement.setString(4, Renthr);
+            statement.setString(5, Total);
+             statement.setString(6, invoiceNumber);
+
+            int result = statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoPattern.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+   
+
+    @Override
+    public void insertTransactionsInfomation4(String discount, String total, String amountpaid, String amountdue, String invoiceNumber) {
+        try {
+            PreparedStatement statement = c.prepareStatement("insert into transactions(discount,total,amountpaid,amountdue,invoice_number) values(?,?,?,?,?)");
+            statement.setString(1, discount);
+            statement.setString(2, total);
+            statement.setString(3, amountpaid);
+            statement.setString(4, amountdue);
+            statement.setString(5, invoiceNumber);
+            int result = statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoPattern.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
