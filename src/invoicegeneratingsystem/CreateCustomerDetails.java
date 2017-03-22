@@ -49,6 +49,7 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         submitBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
+        existingCustomerBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -61,7 +62,7 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Title(Mr/Miss/Mrs):");
+        jLabel2.setText("Title:");
 
         titleTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +125,13 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
             }
         });
 
+        existingCustomerBtn.setText("Already Existing Customer");
+        existingCustomerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                existingCustomerBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,13 +142,6 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
                 .addGap(64, 64, 64))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(submitBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(clearBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +160,17 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
                             .addComponent(titleTxt)
                             .addComponent(customerTxt)
                             .addComponent(lastNameTxt)
-                            .addComponent(phoneTxt))))
+                            .addComponent(phoneTxt)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backBtn)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(existingCustomerBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(submitBtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(clearBtn)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -198,11 +209,14 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(packageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(clearBtn)
-                    .addComponent(backBtn))
-                .addGap(62, 62, 62))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(submitBtn)
+                        .addComponent(backBtn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(existingCustomerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -225,12 +239,11 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
            addressTxtA.setText(null);
            phoneTxt.setText(null);
            packageTxt.setText(null);
-                 
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-         CustomerInformation page = new CustomerInformation();
+         Welcome page = new Welcome();
                 page.setVisible(true);
                 this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
@@ -246,7 +259,9 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
         String customerpackage = packageTxt.getText();
 
         new DaoPattern().insertCustomerDetails(id, title, firstname, lastname, address, phone, customerpackage);
-        
+           InvoiceDetails page = new InvoiceDetails();
+                page.setVisible(true);
+                 this.setVisible(false);
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
@@ -256,6 +271,12 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
     private void customerTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_customerTxtActionPerformed
+
+    private void existingCustomerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existingCustomerBtnActionPerformed
+         InvoiceDetails page = new InvoiceDetails();
+                page.setVisible(true);
+                 this.setVisible(false);
+    }//GEN-LAST:event_existingCustomerBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,6 +318,7 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton clearBtn;
     private javax.swing.JTextField customerTxt;
+    private javax.swing.JButton existingCustomerBtn;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

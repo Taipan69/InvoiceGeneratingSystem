@@ -143,7 +143,7 @@ public class LoginPage extends javax.swing.JFrame {
             rs = pst.executeQuery();
             if (rs.next()) {
            //     JOptionPane.showMessageDialog(LoginPage.this, "You are logged in to the Invoice System", "Information", JOptionPane.NO_OPTION);
-                CustomerInformation page = new CustomerInformation();
+                Welcome page = new Welcome();
                 page.setVisible(true);
                 this.setVisible(false);
             } else {
@@ -152,7 +152,7 @@ public class LoginPage extends javax.swing.JFrame {
                 paswrdpsd.setText(null);
             }
         } catch (Exception e) {
-
+       JOptionPane.showMessageDialog(LoginPage.this, "Could not access database. \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_submitbtnActionPerformed
