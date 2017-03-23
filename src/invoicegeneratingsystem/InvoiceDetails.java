@@ -5,6 +5,7 @@
  */
 package invoicegeneratingsystem;
 
+import invoicegeneratingsystem.dao.DaoPattern;
 import javax.swing.JOptionPane;
 
 /**

@@ -5,6 +5,8 @@
  */
 package invoicegeneratingsystem;
 
+import invoicegeneratingsystem.dao.DaoPattern;
+
 /**
  *
  * @author user

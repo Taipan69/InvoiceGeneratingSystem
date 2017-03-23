@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package invoicegeneratingsystem;
+package invoicegeneratingsystem.dao;
 
+import invoicegeneratingsystem.MyDBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
