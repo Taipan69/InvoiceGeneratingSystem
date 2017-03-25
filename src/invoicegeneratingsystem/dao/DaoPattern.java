@@ -8,6 +8,7 @@ package invoicegeneratingsystem.dao;
 import invoicegeneratingsystem.MyDBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ public class DaoPattern implements IDaoPattern {
 
     MyDBConnection connection;
     Connection c;
+    int val,num;
 
     public DaoPattern() {
         connection = new MyDBConnection();
@@ -94,5 +96,57 @@ public class DaoPattern implements IDaoPattern {
         } catch (SQLException ex) {
             Logger.getLogger(DaoPattern.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public ReturnType adminView(String table)
+    {
+        try
+        {
+                PreparedStatement statement1 = c.prepareStatement("select count(*) from information_schema.COLUMNS where TABLE_SCHEMA = 'invoicegeneratingsystem' and TABLE_NAME ='" + table + "'");
+            //statement1.setString(1, table);
+            ResultSet res1 = statement1.executeQuery();
+            while(res1.next())
+            {
+                val = res1.getInt(1);
+            }
+
+            PreparedStatement statement = c.prepareStatement("select COLUMN_NAME from information_schema.columns where table_name='"+ table +"' and table_schema='invoicegeneratingsystem'");
+            //  statement.setString(1, table);
+            ResultSet res = statement.executeQuery();
+            String[] name = new String[val];
+            for(int i=0; res.next(); i++)
+            {
+                name[i] = res.getString(1);
+            }
+            
+            PreparedStatement statement3 = c.prepareStatement("select count(*) from " + table);
+            ResultSet res2 = statement3.executeQuery();
+            while(res2.next())
+            {
+                num = res2.getInt(1);
+            }
+           
+
+            PreparedStatement statement2 = c.prepareStatement("select * from " + table);
+            ResultSet result = statement2.executeQuery();
+            String[][] values = new String[num][val];
+            for(int i=0; result.next(); i++)
+            {
+                for(int j=0; j<val; j++)
+                {
+                    values[i][j] = result.getString(j+1);
+                }
+            }         
+            return new ReturnType(name, values);
+        }
+        
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
+    public static void main(String[] args) {
     }
 }
