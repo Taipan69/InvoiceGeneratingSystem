@@ -16,6 +16,8 @@ public interface IDaoPattern {
     public void insertInvoiceDetails(String invoiceNumber, String invoiceDate, String customerID);
 
     public void insertRentInfomation1(String CarID, String Kilometreshr, String Durationhr, String Renthr, String Total, String invoiceNumber);
+    
+     public void insertRentInfomation2(String CarID, String Kilometreshr, String Durationhr, String Renthr, String Total, String invoiceNumber);
 
     public void insertTransactionsInfomation4(String discount, String total, String amountpaid, String amountdue,String invoiceNumber);
 }

@@ -5,7 +5,6 @@
  */
 package invoicegeneratingsystem.dao;
 
-import invoicegeneratingsystem.MyDBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +63,7 @@ public class DaoPattern implements IDaoPattern {
     @Override
     public void insertRentInfomation1(String CarID, String Kilometreshr, String Durationhr, String Renthr, String Total, String invoiceNumber) {
         try {
-            PreparedStatement statement = c.prepareStatement("insert into rentinformation(Car_id, Kilometres, Duration, Rent, Total, Invoice_Number) values(?,?,?,?,?,?)");
+            PreparedStatement statement = c.prepareStatement("insert into rentinformation(Car_id, Kilometres_hr, Duration_hr, Rent_hr, Total, Invoice_Number) values(?,?,?,?,?,?)");
             statement.setString(1, CarID);
             statement.setString(2, Kilometreshr);
             statement.setString(3, Durationhr);
@@ -79,7 +78,24 @@ public class DaoPattern implements IDaoPattern {
         }
 
     }
+@Override
+    public void insertRentInfomation2(String CarID, String Kilometreshr, String Durationhr, String Renthr, String Total, String invoiceNumber) {
+        try {
+            PreparedStatement statement = c.prepareStatement("insert into rentinformation(Car_id, Kilometres_hr, Duration_hr, Rent_hr, Total, Invoice_Number) values(?,?,?,?,?,?)");
+            statement.setString(1, CarID);
+            statement.setString(2, Kilometreshr);
+            statement.setString(3, Durationhr);
+            statement.setString(4, Renthr);
+            statement.setString(5, Total);
+             statement.setString(6, invoiceNumber);
 
+            int result = statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoPattern.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
    
 
     @Override

@@ -6,6 +6,9 @@
 package invoicegeneratingsystem;
 
 import invoicegeneratingsystem.dao.DaoPattern;
+import invoicegeneratingsystem.dao.ReturnType;
+import invoicegeneratingsystem.viewoptions.ViewCarInformation;
+import invoicegeneratingsystem.viewoptions.ViewCustomerForm;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,6 +56,11 @@ public class InvoiceDetails extends javax.swing.JFrame {
         frsttotaltxt = new javax.swing.JTextField();
         invoiceRentTxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        frstCarIdtxt1 = new javax.swing.JTextField();
+        frstkilomtrestxt1 = new javax.swing.JTextField();
+        frstDurationtxt1 = new javax.swing.JTextField();
+        frstrenttxt1 = new javax.swing.JTextField();
+        frsttotaltxt1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         totaloveralltxt = new javax.swing.JTextField();
@@ -68,6 +76,7 @@ public class InvoiceDetails extends javax.swing.JFrame {
         clearbtn = new javax.swing.JButton();
         submitBtn = new javax.swing.JButton();
         calculateBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -181,6 +190,24 @@ public class InvoiceDetails extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Invoice Number:");
 
+        frstCarIdtxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frstCarIdtxt1ActionPerformed(evt);
+            }
+        });
+
+        frstkilomtrestxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frstkilomtrestxt1ActionPerformed(evt);
+            }
+        });
+
+        frstrenttxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frstrenttxt1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -188,32 +215,37 @@ public class InvoiceDetails extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(frstCarIdtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(frstkilomtrestxt, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(frstDurationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(frstrenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(frsttotaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(invoiceRentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(invoiceRentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(frstCarIdtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(frstCarIdtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(frstkilomtrestxt, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(frstkilomtrestxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(frstDurationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(frstDurationtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(frstrenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(frstrenttxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(frsttotaltxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(frsttotaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 10, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,11 +265,18 @@ public class InvoiceDetails extends javax.swing.JFrame {
                     .addComponent(frstrenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(frstDurationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(frsttotaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(frstCarIdtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frstkilomtrestxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frstDurationtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frstrenttxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frsttotaltxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(invoiceRentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -345,45 +384,59 @@ public class InvoiceDetails extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("View Cars");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backbtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clearbtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(submitBtn)
+                .addGap(43, 43, 43))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(calculateBtn)
-                                .addGap(132, 132, 132)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(backbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(submitBtn)
-                        .addGap(46, 46, 46))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(calculateBtn)
+                        .addGap(95, 95, 95)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(27, 27, 27)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(calculateBtn)
-                        .addGap(109, 109, 109)))
+                        .addGap(86, 86, 86)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitBtn)
                     .addComponent(clearbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -427,10 +480,15 @@ public class InvoiceDetails extends javax.swing.JFrame {
          invoicedateTxt.setText(null);
          customeridTxt.setText(null);
          frstCarIdtxt.setText(null);
+          frstCarIdtxt1.setText(null);
          frstkilomtrestxt.setText(null);
+           frstkilomtrestxt1.setText(null);
         frstDurationtxt.setText(null);
+          frstDurationtxt1.setText(null);
         frstrenttxt.setText(null);
+         frstrenttxt1.setText(null);
         frsttotaltxt.setText(null);
+         frsttotaltxt1.setText(null);
         amountPaidtxt.setText(null);
         amountduetxt.setText(null);
         discountxt.setText(null);
@@ -448,14 +506,48 @@ public class InvoiceDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_calculateBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-          String invoiceNumber = invoiceNumTxt.getText();
+         if (invoiceNumTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Invoice Number");
+        } else if (invoicedateTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Invoice Date");
+        } else if (customeridTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Customer ID");
+        } else if (frstCarIdtxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter at least one Car ID");
+        } else if (frstkilomtrestxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Kilometres for the car");
+        } else if (frstDurationtxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Duration for the car");
+        } else if (frstrenttxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Rent for the car");
+        } 
+        else if (frsttotaltxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the total for the car");
+        } 
+        else if (amountPaidtxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Amount Paid by the Customer");
+        } 
+         else if (totaloveralltxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the total Overrall");
+        } 
+         else if (totaloveralltxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the amount due for the customer");
+        } 
+        else {
+            try { 
+        String invoiceNumber = invoiceNumTxt.getText();
           String invoiceDate = invoicedateTxt.getText();
           String customerID = customeridTxt.getText();
           String carID1 = frstCarIdtxt.getText(); 
+           String carID2 = frstCarIdtxt1.getText(); 
           String kilometres1 = frstkilomtrestxt.getText(); 
+          String kilometres2 = frstkilomtrestxt1.getText(); 
           String duration1 = frstDurationtxt.getText();  
+              String duration2 = frstDurationtxt1.getText(); 
           String rent1 = frstrenttxt.getText();  
-          String total1 = frsttotaltxt.getText(); 
+          String rent2 = frstrenttxt1.getText();  
+          String total1 = frsttotaltxt.getText();
+          String total2 = frsttotaltxt1.getText(); 
          String amountPaid = amountPaidtxt.getText();
          String discount = discountxt.getText();
          String total = totaloveralltxt.getText();
@@ -463,6 +555,7 @@ public class InvoiceDetails extends javax.swing.JFrame {
          
          new DaoPattern().insertInvoiceDetails(invoiceNumber,invoiceDate,customerID);
         new DaoPattern().insertRentInfomation1(carID1, kilometres1, duration1, rent1, total1,invoiceNumber);
+         new DaoPattern().insertRentInfomation2(carID2, kilometres2, duration2, rent2, total2,invoiceNumber);
         new DaoPattern().insertTransactionsInfomation4(amountPaid, discount, total, amountDue, invoiceNumber);
       
    JOptionPane.showMessageDialog(InvoiceDetails.this, "Invoice information has been submitted to the database", "Confirmation", JOptionPane.INFORMATION_MESSAGE);
@@ -470,12 +563,34 @@ public class InvoiceDetails extends javax.swing.JFrame {
                 Welcome page = new Welcome();
                 page.setVisible(true);
                 this.setVisible(false);
-        
-                
-        
-               
-        
+                } 
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(InvoiceDetails.this, "Could not access database. \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         }
     }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+      ReturnType r = new DaoPattern().adminView("car");
+        ViewCustomerForm customer = new ViewCustomerForm();
+        customer.setVisible(true);
+        customer.setTable(r);
+    
+                
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void frstCarIdtxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frstCarIdtxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frstCarIdtxt1ActionPerformed
+
+    private void frstkilomtrestxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frstkilomtrestxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frstkilomtrestxt1ActionPerformed
+
+    private void frstrenttxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frstrenttxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frstrenttxt1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -522,13 +637,19 @@ public class InvoiceDetails extends javax.swing.JFrame {
     private javax.swing.JTextField customeridTxt;
     private javax.swing.JTextField discountxt;
     private javax.swing.JTextField frstCarIdtxt;
+    private javax.swing.JTextField frstCarIdtxt1;
     private javax.swing.JTextField frstDurationtxt;
+    private javax.swing.JTextField frstDurationtxt1;
     private javax.swing.JTextField frstkilomtrestxt;
+    private javax.swing.JTextField frstkilomtrestxt1;
     private javax.swing.JTextField frstrenttxt;
+    private javax.swing.JTextField frstrenttxt1;
     private javax.swing.JTextField frsttotaltxt;
+    private javax.swing.JTextField frsttotaltxt1;
     private javax.swing.JTextField invoiceNumTxt;
     private javax.swing.JTextField invoiceRentTxt;
     private javax.swing.JFormattedTextField invoicedateTxt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

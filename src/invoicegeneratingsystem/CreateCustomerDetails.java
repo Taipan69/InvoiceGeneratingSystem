@@ -6,6 +6,7 @@
 package invoicegeneratingsystem;
 
 import invoicegeneratingsystem.dao.DaoPattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,7 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
      * Creates new form CreateCustomerDetails
      */
     public CreateCustomerDetails() {
-     
+
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Customer Details Form");
@@ -138,13 +139,13 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Customer ID", "Title", "First Name", "Last Name", "Address", "Phone Number", "Address"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -156,40 +157,40 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(existingCustomerBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(backBtn)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(submitBtn)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(clearBtn))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel1))
-                                        .addGap(35, 35, 35)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-                                            .addComponent(packageTxt)
-                                            .addComponent(firstNameTxt)
-                                            .addComponent(titleTxt)
-                                            .addComponent(customerTxt)
-                                            .addComponent(lastNameTxt)
-                                            .addComponent(phoneTxt))))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(existingCustomerBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(backBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(submitBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(clearBtn))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel1))
+                                    .addGap(35, 35, 35)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                        .addComponent(packageTxt)
+                                        .addComponent(firstNameTxt)
+                                        .addComponent(titleTxt)
+                                        .addComponent(customerTxt)
+                                        .addComponent(lastNameTxt)
+                                        .addComponent(phoneTxt))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,9 +235,9 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
                     .addComponent(clearBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(existingCustomerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,36 +253,59 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         // TODO add your handling code here:
-         customerTxt.setText(null);
-          titleTxt.setText(null);
-          firstNameTxt.setText(null);
-           lastNameTxt.setText(null);
-           addressTxtA.setText(null);
-           phoneTxt.setText(null);
-           packageTxt.setText(null);
+        customerTxt.setText(null);
+        titleTxt.setText(null);
+        firstNameTxt.setText(null);
+        lastNameTxt.setText(null);
+        addressTxtA.setText(null);
+        phoneTxt.setText(null);
+        packageTxt.setText(null);
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-         Welcome page = new Welcome();
-                page.setVisible(true);
-                this.setVisible(false);
+        Welcome page = new Welcome();
+        page.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-        String id = customerTxt.getText();
-        String title = titleTxt.getText();
-        String firstname = firstNameTxt.getText();
-        String lastname = lastNameTxt.getText();
-        String address = addressTxtA.getText();
-        String phone = phoneTxt.getText();
-        String customerpackage = packageTxt.getText();
+        if (customerTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Customer ID");
+        } else if (titleTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Customer Title");
+        } else if (firstNameTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the First Name");
+        } else if (lastNameTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Last Name");
+        } else if (addressTxtA.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Address");
+        } else if (phoneTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Phone Number");
+        } else if (packageTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Package");
+        } else {
+            try {
+                String id = customerTxt.getText();
+                String title = titleTxt.getText();
+                String firstname = firstNameTxt.getText();
+                String lastname = lastNameTxt.getText();
+                String address = addressTxtA.getText();
+                String phone = phoneTxt.getText();
+                String customerpackage = packageTxt.getText();
 
-        new DaoPattern().insertCustomerDetails(id, title, firstname, lastname, address, phone, customerpackage);
-           InvoiceDetails page = new InvoiceDetails();
+                new DaoPattern().insertCustomerDetails(id, title, firstname, lastname, address, phone, customerpackage);
+
+                JOptionPane.showMessageDialog(CreateCustomerDetails.this, "Invoice information has been submitted to the database", "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+
+                InvoiceDetails page = new InvoiceDetails();
                 page.setVisible(true);
-                 this.setVisible(false);
+                this.setVisible(false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(CreateCustomerDetails.this, "Could not access database. \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
@@ -293,9 +317,9 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_customerTxtActionPerformed
 
     private void existingCustomerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existingCustomerBtnActionPerformed
-         InvoiceDetails page = new InvoiceDetails();
-                page.setVisible(true);
-                 this.setVisible(false);
+        InvoiceDetails page = new InvoiceDetails();
+        page.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_existingCustomerBtnActionPerformed
 
     /**

@@ -6,30 +6,28 @@
 package invoicegeneratingsystem;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author user
  */
-public class LoginPage extends javax.swing.JFrame {
-
-    Connection conn = null;
+public class LoginPageAdmin extends javax.swing.JFrame {
+    
+    
+ Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
 
     /**
-     * Creates new form LoginPage
+     * Creates new form LoginPageAdmin
      */
-    public LoginPage() {
+    public LoginPageAdmin() {
         initComponents();
-        setLocationRelativeTo(null);
-        setTitle("Login Page");
-
+         setLocationRelativeTo(null);
+        setTitle("Admin Login Page");
     }
 
     /**
@@ -46,16 +44,12 @@ public class LoginPage extends javax.swing.JFrame {
         usrnametxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         paswrdpsd = new javax.swing.JPasswordField();
+        shwpassChkBox = new javax.swing.JCheckBox();
         submitbtn = new javax.swing.JButton();
         clearbtn = new javax.swing.JButton();
-        shwpassChkBox = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
-        setResizable(false);
 
         salihujLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         salihujLabel.setText("Salihu Car Rental");
@@ -75,6 +69,18 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
+        shwpassChkBox.setText("Show Password");
+        shwpassChkBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                shwpassChkBoxMousePressed(evt);
+            }
+        });
+        shwpassChkBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shwpassChkBoxActionPerformed(evt);
+            }
+        });
+
         submitbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/invoicegeneratingsystem/Apply.png"))); // NOI18N
         submitbtn.setText("  Login");
         submitbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -88,18 +94,6 @@ public class LoginPage extends javax.swing.JFrame {
         clearbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearbtnActionPerformed(evt);
-            }
-        });
-
-        shwpassChkBox.setText("Show Password");
-        shwpassChkBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                shwpassChkBoxMousePressed(evt);
-            }
-        });
-        shwpassChkBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shwpassChkBoxActionPerformed(evt);
             }
         });
 
@@ -118,72 +112,77 @@ public class LoginPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
+                        .addGap(119, 119, 119)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(shwpassChkBox)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(clearbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(usrnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(shwpassChkBox))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clearbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(usrnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
+                        .addGap(236, 236, 236)
                         .addComponent(salihujLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(42, 42, 42)
                 .addComponent(salihujLabel)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usrnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(shwpassChkBox)
-                        .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
-                .addGap(37, 37, 37)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitbtn)
+                    .addComponent(shwpassChkBox)
+                    .addComponent(paswrdpsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearbtn)
+                    .addComponent(submitbtn)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clearbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtnActionPerformed
+    private void usrnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usrnametxtActionPerformed
         // TODO add your handling code here:
-        usrnametxt.setText(null);
-        paswrdpsd.setText(null);
-    }//GEN-LAST:event_clearbtnActionPerformed
+    }//GEN-LAST:event_usrnametxtActionPerformed
 
+    private void usrnametxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usrnametxtKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usrnametxtKeyTyped
+
+    private void shwpassChkBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shwpassChkBoxMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shwpassChkBoxMousePressed
+
+    private void shwpassChkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shwpassChkBoxActionPerformed
+        // TODO add your handling code here:
+        if (shwpassChkBox.isSelected()) {
+            paswrdpsd.setEchoChar((char) 0); //password = JPasswordField
+        } else {
+
+            paswrdpsd.setEchoChar('*');
+        }
+    }//GEN-LAST:event_shwpassChkBoxActionPerformed
 
     private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
         if (usrnametxt.getText().isEmpty()) {
@@ -193,8 +192,8 @@ public class LoginPage extends javax.swing.JFrame {
         } else {
             try {
 
-                conn = MySqlConnect.ConnectDB();
-                String sql = "Select * From login where username=? and password=?";
+                Connection conn = MySqlConnect.ConnectDB();
+                String sql = "Select * From admin_login where username=? and password=?";
 
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, usrnametxt.getText());
@@ -202,45 +201,28 @@ public class LoginPage extends javax.swing.JFrame {
                 rs = pst.executeQuery();
                 if (rs.next()) {
                     //     JOptionPane.showMessageDialog(LoginPage.this, "You are logged in to the Invoice System", "Information", JOptionPane.NO_OPTION);
-                    Welcome page = new Welcome();
+                    Admin page = new Admin();
                     page.setVisible(true);
                     this.setVisible(false);
                 } else {
-                    JOptionPane.showMessageDialog(LoginPage.this, "Incorrect Username or password \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(LoginPageAdmin.this, "Incorrect Username or password \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(LoginPage.this, "Could not access database. \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(LoginPageAdmin.this, "Could not access database. \n Try Again!", "Error", JOptionPane.ERROR_MESSAGE);
             }
-
     }//GEN-LAST:event_submitbtnActionPerformed
     }
-    private void shwpassChkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shwpassChkBoxActionPerformed
+    private void clearbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtnActionPerformed
         // TODO add your handling code here:
-      if (shwpassChkBox.isSelected()) {
-            paswrdpsd.setEchoChar((char) 0); //password = JPasswordField
-        } else {
-
-            paswrdpsd.setEchoChar('*');
-        }  
-    }//GEN-LAST:event_shwpassChkBoxActionPerformed
-
-    private void usrnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usrnametxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usrnametxtActionPerformed
-
-    private void shwpassChkBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shwpassChkBoxMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_shwpassChkBoxMousePressed
-
-    private void usrnametxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usrnametxtKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usrnametxtKeyTyped
+        usrnametxt.setText(null);
+        paswrdpsd.setText(null);
+    }//GEN-LAST:event_clearbtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Index page = new Index();
-                    page.setVisible(true);
-                    this.setVisible(false);
+        page.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -260,20 +242,20 @@ public class LoginPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPage().setVisible(true);
+                new LoginPageAdmin().setVisible(true);
             }
         });
     }
@@ -283,8 +265,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField paswrdpsd;
     private javax.swing.JLabel salihujLabel;
     private javax.swing.JCheckBox shwpassChkBox;
