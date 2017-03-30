@@ -7,6 +7,7 @@ package invoicegeneratingsystem;
 
 import invoicegeneratingsystem.dao.DaoPattern;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 /**
  *
@@ -252,6 +253,7 @@ public class CreateCustomerDetails extends javax.swing.JFrame {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+
         if (customerTxt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter the Customer ID");
         } else if (titleTxt.getText().isEmpty()) {
